@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  background: #0f4c75;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.aquarium {
+  position: relative;
+  width: 900px;
+  height: 500px;
+  background: linear-gradient(to bottom, #00bfff, #005f7f);
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* Cá bé – tách nhau ra bằng top và animation-delay */
+.fish.small {
+  position: absolute;
+  width: 50px;
+  height: auto;
+  left: -100px;
+  animation: smallFishSwim 10s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.fish1 { top: 80px; animation-delay: 0s; }
+.fish2 { top: 150px; animation-delay: 2s; }
+.fish3 { top: 220px; animation-delay: 4s; }
+
+/* Cá mập */
+.fish.big {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  top: 150px;
+  left: -150px;
+  animation: sharkSwim 12s linear infinite;
+  transform-origin: center center;
+}
+
+/* Keyframes cá bé */
+@keyframes smallFishSwim {
+  0% { left: -100px; transform: scaleX(1) rotate(0deg); }
+  40% { left: 700px; transform: scaleX(1) rotate(0deg); }
+  50% { transform: scaleX(-1) rotate(10deg); }
+  90% { left: 100px; transform: scaleX(-1) rotate(0deg); }
+  100% { transform: scaleX(1) rotate(-10deg); }
+}
+
+/* Keyframes cá mập */
+@keyframes sharkSwim {
+  0% { left: -150px; transform: scaleX(1); }
+  40% { left: 600px; transform: scaleX(1); }
+  50% { transform: scaleX(-1); }
+  90% { left: 50px; transform: scaleX(-1); }
+  100% { transform: scaleX(1); }
+}
+
+/* Thợ lặn – tách nhau ra */
+.diver {
+  position: absolute;
+  width: 60px;
+  height: auto;
+  animation: dive 6s ease-in-out infinite alternate;
+}
+
+.diver1 { left: 600px; top: 380px; animation-delay: 0s; }
+.diver2 { left: 650px; top: 410px; animation-delay: 2s; }
+.diver3 { left: 700px; top: 440px; animation-delay: 4s; }
+
+@keyframes dive {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(10deg); }
+  100% { transform: translateY(0px) rotate(-10deg); }
+}
+
+/* Rạn san hô */
+.coral {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  height: auto;
+  animation: sway 3s ease-in-out infinite alternate;
+}
+
+.coral1 { left: 50px; animation-delay: 0s; }
+.coral2 { left: 180px; animation-delay: 1s; }
+.coral3 { left: 320px; animation-delay: 0.5s; }
+.coral4 { left: 450px; animation-delay: 1.5s; }
+
+@keyframes sway {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+/* Bong bóng */
+.bubble {
+  position: absolute;
+  bottom: 0;
+  width: 15px;
+  height: 15px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  animation: rise 5s linear infinite;
+}
+
+.bubble1 { left: 200px; animation-duration: 4s; }
+.bubble2 { left: 350px; animation-duration: 5s; }
+.bubble3 { left: 500px; animation-duration: 6s; }
+.bubble4 { left: 650px; animation-duration: 4.5s; }
+.bubble5 { left: 800px; animation-duration: 5.5s; }
+
+@keyframes rise {
+  0% { bottom: 0; opacity: 0; transform: translateX(0) scale(0.5); }
+  50% { opacity: 1; }
+  100% { bottom: 500px; opacity: 0; transform: translateX(20px) scale(1); }
+}

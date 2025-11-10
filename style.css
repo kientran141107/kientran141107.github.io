@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 0;
+}
+
+.cv-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Cột trái */
+.left-column {
+  width: 35%;
+  background-color: #0f2740;
+  color: white;
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.profile-pic img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* Cột phải */
+.right-column {
+  width: 65%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.right-column h1 {
+  color: #1a3d6b;
+  margin: 0;
+}

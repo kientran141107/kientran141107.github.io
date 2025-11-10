@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+.cv-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    background: white;
+}
+
+/* Cột trái */
+.left-column {
+    width: 35%;
+    background-color: #0f2740;
+    color: white;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.profile-pic {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.left-column h2 {
+    border-bottom: 2px solid #ffffff55;
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+.left-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.left-column ul li {
+    margin: 5px 0;
+}
+
+/* Cột phải */
+.right-column {
+    width: 65%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.right-column h1 {
+    color: #1a3d6b;
+    margin: 0;
+}
+
+.right-column h3 {
+    color: #666;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    color: #1a3d6b;
+    border-bottom: 2px solid #1a3d6b;
+    padding-bottom: 5px;
+}
+
+.section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.section {
+    margin-bottom: 25px;
+}

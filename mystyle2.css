@@ -1,3 +1,4 @@
+/* Nền trang */
 body {
   margin: 0;
   background: #0f4c75;
@@ -7,85 +8,102 @@ body {
   height: 100vh;
 }
 
+/* Hồ cá */
 .aquarium {
   position: relative;
   width: 900px;
   height: 500px;
   background: linear-gradient(to bottom, #00bfff, #005f7f);
+  background-image: radial-gradient(circle at 30% 10%, rgba(255,255,255,0.2), transparent 70%);
   overflow: hidden;
   border-radius: 20px;
 }
 
-/* Cá bé – tách nhau ra bằng top và animation-delay */
+/* Cá bé */
 .fish.small {
   position: absolute;
   width: 50px;
-  height: auto;
   left: -100px;
   animation: smallFishSwim 10s ease-in-out infinite;
   transform-origin: center center;
 }
-
 .fish1 { top: 80px; animation-delay: 0s; }
 .fish2 { top: 150px; animation-delay: 2s; }
 .fish3 { top: 220px; animation-delay: 4s; }
+
+@keyframes smallFishSwim {
+  0%   { left: -100px; transform: scaleX(1) translateY(0); }
+  25%  { transform: scaleX(1) translateY(-10px); }
+  40%  { left: 700px; transform: scaleX(1) translateY(10px); }
+  50%  { transform: scaleX(-1) translateY(0); }
+  75%  { transform: scaleX(-1) translateY(-10px); }
+  90%  { left: 100px; transform: scaleX(-1) translateY(10px); }
+  100% { transform: scaleX(1) translateY(0); }
+}
 
 /* Cá mập */
 .fish.big {
   position: absolute;
   width: 150px;
-  height: auto;
   top: 150px;
   left: -150px;
   animation: sharkSwim 12s linear infinite;
   transform-origin: center center;
 }
 
-/* Keyframes cá bé */
-@keyframes smallFishSwim {
-  0% { left: -100px; transform: scaleX(1) rotate(0deg); }
-  40% { left: 700px; transform: scaleX(1) rotate(0deg); }
-  50% { transform: scaleX(-1) rotate(10deg); }
-  90% { left: 100px; transform: scaleX(-1) rotate(0deg); }
-  100% { transform: scaleX(1) rotate(-10deg); }
-}
-
-/* Keyframes cá mập */
 @keyframes sharkSwim {
-  0% { left: -150px; transform: scaleX(1); }
-  40% { left: 600px; transform: scaleX(1); }
-  50% { transform: scaleX(-1); }
-  90% { left: 50px; transform: scaleX(-1); }
-  100% { transform: scaleX(1); }
+  0%   { left: -150px; transform: scaleX(1) translateY(0); }
+  25%  { transform: scaleX(1) translateY(-10px); }
+  40%  { left: 600px; transform: scaleX(1) translateY(10px); }
+  50%  { transform: scaleX(-1) translateY(0); }
+  75%  { transform: scaleX(-1) translateY(-10px); }
+  90%  { left: 50px; transform: scaleX(-1) translateY(10px); }
+  100% { transform: scaleX(1) translateY(0); }
 }
 
-/* Thợ lặn – tách nhau ra */
+/* Thợ lặn */
+/* Thợ lặn */
 .diver {
   position: absolute;
-  width: 60px;
-  height: auto;
+  width: 70px; /* lớn hơn cá bé */
   animation: dive 6s ease-in-out infinite alternate;
 }
-
-.diver1 { left: 600px; top: 380px; animation-delay: 0s; }
-.diver2 { left: 650px; top: 410px; animation-delay: 2s; }
-.diver3 { left: 700px; top: 440px; animation-delay: 4s; }
-
-@keyframes dive {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-30px) rotate(10deg); }
-  100% { transform: translateY(0px) rotate(-10deg); }
+.diver1 {
+  left: 100px;
+  bottom: 20px;
+  top: auto;
+  animation-delay: 0s;
 }
 
-/* Rạn san hô */
+.diver2 {
+  left: 400px;
+  bottom: 20px;
+  top: auto;
+  animation-delay: 2s;
+}
+
+.diver3 {
+  left: 700px;
+  bottom: 20px;
+  top: auto;
+  animation-delay: 4s;
+}
+
+@keyframes dive {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  25%  { transform: translateY(-15px) rotate(5deg); }
+  50%  { transform: translateY(-30px) rotate(10deg); }
+  75%  { transform: translateY(-15px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(-5deg); }
+}
+
+/* San hô */
 .coral {
   position: absolute;
   bottom: 0;
   width: 120px;
-  height: auto;
   animation: sway 3s ease-in-out infinite alternate;
 }
-
 .coral1 { left: 50px; animation-delay: 0s; }
 .coral2 { left: 180px; animation-delay: 1s; }
 .coral3 { left: 320px; animation-delay: 0.5s; }
@@ -104,17 +122,24 @@ body {
   height: 15px;
   background: rgba(255,255,255,0.7);
   border-radius: 50%;
-  animation: rise 5s linear infinite;
+  box-shadow: 0 0 8px rgba(255,255,255,0.5);
 }
 
-.bubble1 { left: 200px; animation-duration: 4s; }
-.bubble2 { left: 350px; animation-duration: 5s; }
-.bubble3 { left: 500px; animation-duration: 6s; }
-.bubble4 { left: 650px; animation-duration: 4.5s; }
-.bubble5 { left: 800px; animation-duration: 5.5s; }
+.bubble1 { left: 200px; animation: riseFast 4s linear infinite; }
+.bubble2 { left: 350px; animation: riseWavy 5s linear infinite; }
+.bubble3 { left: 500px; animation: riseFast 6s linear infinite; }
+.bubble4 { left: 650px; animation: riseWavy 4.5s linear infinite; }
+.bubble5 { left: 800px; animation: riseFast 5.5s linear infinite; }
 
-@keyframes rise {
-  0% { bottom: 0; opacity: 0; transform: translateX(0) scale(0.5); }
-  50% { opacity: 1; }
+@keyframes riseFast {
+  0%   { bottom: 0; opacity: 0; transform: translateX(0) scale(0.5); }
+  50%  { opacity: 1; }
   100% { bottom: 500px; opacity: 0; transform: translateX(20px) scale(1); }
+}
+
+@keyframes riseWavy {
+  0%   { bottom: 0; opacity: 0; transform: translateX(0) scale(0.5); }
+  30%  { opacity: 1; transform: translateX(-10px) scale(0.7); }
+  60%  { transform: translateX(10px) scale(0.9); }
+  100% { bottom: 500px; opacity: 0; transform: translateX(0) scale(1); }
 }

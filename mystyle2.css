@@ -60,8 +60,6 @@ body {
   90%  { left: 50px; transform: scaleX(-1) translateY(10px); }
   100% { transform: scaleX(1) translateY(0); }
 }
-
-/* Thợ lặn */
 /* Thợ lặn */
 .diver {
   position: absolute;
@@ -101,7 +99,7 @@ body {
 .coral {
   position: absolute;
   bottom: 0;
-  width: 120px;
+  width: 60px;
   animation: sway 3s ease-in-out infinite alternate;
 }
 .coral1 { left: 50px; animation-delay: 0s; }
@@ -143,3 +141,4 @@ body {
   60%  { transform: translateX(10px) scale(0.9); }
   100% { bottom: 500px; opacity: 0; transform: translateX(0) scale(1); }
 }
+

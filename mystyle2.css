@@ -86,13 +86,19 @@ body {
   top: auto;
   animation-delay: 4s;
 }
-
 @keyframes dive {
-  0%   { transform: translateY(0px) rotate(0deg); }
-  25%  { transform: translateY(-15px) rotate(5deg); }
-  50%  { transform: translateY(-30px) rotate(10deg); }
-  75%  { transform: translateY(-15px) rotate(5deg); }
-  100% { transform: translateY(0px) rotate(-5deg); }
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(10px, -10px) rotate(5deg); }
+  50%  { transform: translate(20px, 0px) rotate(10deg); }
+  75%  { transform: translate(10px, 10px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(-5deg); }
+}
+.diver {
+  position: absolute;
+  width: 70px;
+  animation: dive 6s ease-in-out infinite alternate;
+  transform-origin: center center;
+  will-change: transform;
 }
 
 /* San hô */
@@ -141,4 +147,5 @@ body {
   60%  { transform: translateX(10px) scale(0.9); }
   100% { bottom: 500px; opacity: 0; transform: translateX(0) scale(1); }
 }
+
 

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sắp xếp danh sách bằng kéo thả</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #89f7fe, #66a6ff);
+        position: relative;
+        overflow: hidden;
+    }
+    body::before {
+        content: "";
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: rgba(255,255,255,0.2);
+        filter: blur(150px);
+        border-radius: 50%;
+        top: -150px;
+        right: -150px;
+        animation: glow 6s infinite alternate ease-in-out;
+    }
+
+    @keyframes glow {
+        0% { transform: translate(0,0); }
+        100% { transform: translate(-80px, 80px); }
+    }
+    .container {
+        width: 350px;
+        background: rgba(255,255,255,0.95);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.6);
+        animation: fadeIn 0.7s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 18px;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        list-style: none;
+        padding: 12px 15px;
+        background: #f2f5fa;
+        margin: 8px 0;
+        cursor: grab;
+        border-radius: 10px;
+        border: 1px solid #d8deea;
+        transition: 0.2s;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    li:hover {
+        background: #e7ecf5;
+        transform: scale(1.02);
+    }
+
+    li.dragging {
+        opacity: 0.5;
+        background: #cfd8e8;
+    }
+
+    li.placeholder {
+        height: 45px;
+        border: 2px dashed #4f7ac8;
+        border-radius: 10px;
+        margin: 8px 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Sắp xếp danh sách</h2>
+
+    <ul id="list">
+        <li draggable="true">📌 Công việc 1</li>
+        <li draggable="true">📌 Công việc 2</li>
+        <li draggable="true">📌 Công việc 3</li>
+        <li draggable="true">📌 Công việc 4</li>
+        <li draggable="true">📌 Công việc 5</li>
+        <li draggable="true">📌 Công việc 6</li>
+        <li draggable="true">📌 Công việc 7</li>
+        <li draggable="true">📌 Công việc 8</li>
+    </ul>
+</div>
+
+<script>
+let dragging = null;
+const placeholder = document.createElement("li");
+placeholder.classList.add("placeholder");
+
+const list = document.getElementById("list");
+
+list.addEventListener("dragstart", (e) => {
+    dragging = e.target;
+    dragging.classList.add("dragging");
+});
+
+list.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    const items = [...list.querySelectorAll("li:not(.dragging)")];
+    const y = e.clientY;
+
+    let nextItem = items.find(item => y <= item.offsetTop + item.offsetHeight / 2);
+
+    if (nextItem) {
+        list.insertBefore(placeholder, nextItem);
+    } else {
+        list.appendChild(placeholder);
+    }
+});
+
+list.addEventListener("drop", () => {
+    dragging.classList.remove("dragging");
+    list.insertBefore(dragging, placeholder);
+    placeholder.remove();
+});
+
+list.addEventListener("dragend", () => {
+    dragging?.classList.remove("dragging");
+    placeholder.remove();
+});
+</script>
+
+</body>
+</html>
